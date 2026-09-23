@@ -252,9 +252,9 @@ async function verifyOtpAndProceed() {
   // Fallback step 3
   const fallbackOrder = {
     title: (currentPaymentMethod === 'cash') 
-      ? 'پیش‌پرداخت بازطراحی وب‌سایت کافه بوردگیم کندو' 
+      ? 'پیش‌پرداخت بازطراحی وب‌سایت کافه بوردگیم کندو (۵۰٪)' 
       : 'تسویه اقساطی دیجی‌پی قرارداد کافه کندو',
-    amount_formatted: 'مطابق جدول توافقی',
+    amount_formatted: (currentPaymentMethod === 'cash') ? '۱۶,۴۶۴,۸۲۵ تومان' : '۳۲,۹۲۹,۶۵۱ تومان',
     payment_mode: currentPaymentMethod,
     client_name: CONFIG.selectedClientName,
     client_phone: phone

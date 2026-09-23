@@ -141,9 +141,11 @@ if ($action === 'verify_otp') {
         }
     }
 
+    $amount = ($payment_mode === 'cash') ? 16464825 : 32929651;
+    $amount_formatted = number_format($amount) . ' تومان';
     $order_title = ($payment_mode === 'cash') 
-        ? 'پیش‌پرداخت بازطراحی وب‌سایت کافه بوردگیم کندو' 
-        : 'تسویه اقساطی دیجی‌پی قرارداد کافه کندو';
+        ? 'پیش‌پرداخت ۵۰٪ بازطراحی وب‌سایت کافه بوردگیم کندو' 
+        : 'تسویه اقساطی دیجی‌پی قرارداد کافه کندو (۳۲,۹۲۹,۶۵۱ تومان)';
 
     $available_gateways = [];
     if ($wp_loaded && function_exists('WC')) {
@@ -164,7 +166,8 @@ if ($action === 'verify_otp') {
         'user_id' => $user_id,
         'order_data' => [
             'title' => $order_title,
-            'amount_formatted' => 'مطابق جدول توافقی',
+            'amount' => $amount,
+            'amount_formatted' => $amount_formatted,
             'payment_mode' => $payment_mode,
             'client_name' => $client_name,
             'client_phone' => $phone
@@ -181,6 +184,11 @@ if ($action === 'create_order_and_pay') {
     $gateway_id = $data['gateway_id'] ?? '';
     $client_name = trim($data['client_name'] ?? 'مصطفی رجائی');
 
+    $amount = ($payment_mode === 'cash') ? 16464825 : 32929651;
+    $item_name = ($payment_mode === 'cash')
+        ? 'پیش‌پرداخت ۵۰٪ قرارداد وب‌سایت کافه بوردگیم کندو (candocafe.ir)'
+        : 'قرارداد وب‌سایت کافه بوردگیم کندو - تسویه اقساطی دیجی‌پی';
+
     load_wordpress_environment();
 
     if ($wp_loaded && function_exists('wc_create_order')) {
@@ -193,11 +201,10 @@ if ($action === 'create_order_and_pay') {
             'status'      => 'pending'
         ]);
 
-        $item_name = 'پیش‌پرداخت قرارداد وب‌سایت کافه بوردگیم کندو (candocafe.ir)';
         $item = new WC_Order_Item_Fee();
         $item->set_name($item_name);
-        $item->set_amount(0); // Will be updated when cost breakdown numbers are finalized
-        $item->set_total(0);
+        $item->set_amount($amount);
+        $item->set_total($amount);
         $order->add_item($item);
 
         $address = [

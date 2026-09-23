@@ -332,59 +332,105 @@
         <div class="article-body">
           <div class="price-summary-banner">
             <div class="price-col">
-              <span class="price-label">مبلغ کل قرارداد و برآورد هزینه‌ها:</span>
-              <span class="price-digits" id="contract-total-display">مطابق با جدول ریزهزینه‌ها</span>
-              <span class="price-words">امکان پرداخت نقدی مرحله‌ای و تسویه اقساطی با دیجی‌پی</span>
+              <span class="price-label">مبلغ نهایی قابل پرداخت قرارداد (با احتساب تخفیف پلن حامی):</span>
+              <span class="price-digits" id="contract-total-display">۳۲,۹۲۹,۶۵۱ تومان</span>
+              <span class="price-words">(سی و دو میلیون و نهصد و بیست و نه هزار و ششصد و پنجاه و یک تومان)</span>
             </div>
             <div class="price-methods-tag">
-              پرداخت در دو مرحله <strong>۵۰٪ پیش‌پرداخت</strong> و <strong>۵۰٪ تسویه نهایی</strong> پس از تحویل و آموزش
+              پرداخت در دو مرحله <strong>۵۰٪ پیش‌پرداخت (۱۶,۴۶۴,۸۲۵ تومان)</strong> و <strong>۵۰٪ تسویه نهایی</strong> یا تسویه کامل اقساطی دیجی‌پی
             </div>
           </div>
 
-          <!-- Cost Breakdown Table Placeholder -->
+          <!-- Cost Breakdown Table -->
           <div class="cost-breakdown-wrapper">
             <h4 class="sub-block-title">جدول ریزهزینه‌ها و آیتم‌های مالی پروژه:</h4>
             <table class="contract-table cost-table">
               <thead>
                 <tr>
-                  <th>ردیف</th>
-                  <th>شرح خدمات / آیتم اجرایی</th>
-                  <th>وضعیت / ماژول</th>
-                  <th>مبلغ (تومان)</th>
+                  <th style="width: 8%;">ردیف</th>
+                  <th style="width: 52%;">شرح خدمات و آیتم اجرایی</th>
+                  <th style="width: 20%;">دوره / مستندات</th>
+                  <th style="width: 20%;">مبلغ (تومان)</th>
                 </tr>
               </thead>
               <tbody id="cost-table-body">
                 <tr>
                   <td>۱</td>
-                  <td>نصب، پیکربندی هاست لایت‌اسپید و بازطراحی صفحات سایت (صفحه اصلی، فروشگاه، وبلاگ، درباره ما، تماس و پنل کاربری)</td>
-                  <td>طراحی اختصاصی UI/UX</td>
-                  <td>توافقی</td>
+                  <td>
+                    <strong>هزینه هاست و دامنه (پرداخت‌های گذشته):</strong>
+                    <div style="margin-top: 6px;">
+                      <a href="parspack_invoices.html" target="_blank" class="invoice-link-btn">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        مشاهده ریز فاکتورهای پرداخت‌شده پارس‌پک (کلیک کنید)
+                      </a>
+                    </div>
+                  </td>
+                  <td>رسیدهای ابری پارس‌پک</td>
+                  <td><strong>۲,۴۲۹,۶۵۱</strong></td>
                 </tr>
                 <tr>
                   <td>۲</td>
-                  <td>درج و استانداردسازی حداقل ۳۰ محصول بازی رومیزی به همراه مدیا و فیلترهای تخصصی</td>
-                  <td>پک کاتالوگ بوردگیم</td>
-                  <td>توافقی</td>
+                  <td>
+                    <strong>هزینه طراحی، پیاده‌سازی و نگهداری سایت:</strong>
+                    <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">شامل پایش فنی، نگهداری دوره‌ای و تغییرات زیرساختی سیستم</p>
+                  </td>
+                  <td>۱۴۰۲/۱۲/۰۳ الی ۱۴۰۴/۰۷/۱۲</td>
+                  <td><strong>۵,۵۰۰,۰۰۰</strong></td>
                 </tr>
                 <tr>
                   <td>۳</td>
-                  <td>نصب و راه‌اندازی سیستم اختصاصی به‌روزرسانی خودکار و دستی قیمت‌ها</td>
-                  <td>پلاگین اختصاصی پالت</td>
-                  <td>توافقی</td>
+                  <td>
+                    <div class="package-expandable-header">
+                      <div>
+                        <strong>طراحی و اجرای سایت فروشگاه با خدمات ذکر شده:</strong>
+                        <p style="font-size: 0.82rem; color: #64748B; margin-top: 4px;">پکیج کامل طراحی، بازطراحی، درج ۳۰ محصول، سیستم اختصاصی آپدیت قیمت و درگاه‌ها</p>
+                      </div>
+                    </div>
+
+                    <!-- Collapsible Dropdown for Sub-services -->
+                    <details class="services-dropdown" open>
+                      <summary class="services-dropdown-summary">
+                        <span>مشاهده فهرست ریزخدمات درون پکیج (برگرفته از <a href="https://palette.agency/website-design/" target="_blank" onclick="event.stopPropagation();" style="color: #D97706; text-decoration: underline;">خدمات طراحی سایت در شیراز | آژانس پالت</a>)</span>
+                        <span class="dropdown-chevron">▼</span>
+                      </summary>
+                      <div class="services-dropdown-content">
+                        <div class="sub-service-tag-grid">
+                          <span class="srv-badge">✓ مالکیت دائمی سورس و دیتابیس</span>
+                          <span class="srv-badge">✓ شخصی‌سازی کامل امکانات سایت</span>
+                          <span class="srv-badge">✓ بهینه‌سازی سرعت و لایت‌اسپید</span>
+                          <span class="srv-badge">✓ تنظیمات امنیتی وب‌سایت</span>
+                          <span class="srv-badge">✓ آموزش جامع کار با وب‌سایت</span>
+                          <span class="srv-badge">✓ آموزش نحوه اعمال تغییرات در سایت</span>
+                          <span class="srv-badge">✓ پشتیبانی از انواع محتوای متنی و ویدیویی</span>
+                          <span class="srv-badge">✓ ثبت سایت و نقشه در گوگل سرچ‌کنسول</span>
+                          <span class="srv-badge">✓ فعال‌سازی آمارگیر دقیق گوگل</span>
+                          <span class="srv-badge">✓ سیستم ثبت دیدگاه و نظرات بازدیدکنندگان</span>
+                          <span class="srv-badge">✓ ۳ ماه پشتیبانی رایگان فنی</span>
+                          <span class="srv-badge">✓ امکان تمدید پشتیبانی نامحدود</span>
+                          <span class="srv-badge">✓ امکان فروش فایل دانلودی (قوانین و راهنمای بازی)</span>
+                          <span class="srv-badge">✓ امکان صدور فاکتور الکترونیک استاندارد</span>
+                        </div>
+                      </div>
+                    </details>
+                  </td>
+                  <td>پکیج حرفه‌ای فروشگاهی</td>
+                  <td><strong>۴۰,۰۰۰,۰۰۰</strong></td>
                 </tr>
-                <tr>
+                <tr class="discount-row" style="background: #FEF2F2; color: #991B1B;">
                   <td>۴</td>
-                  <td>یکپارچه‌سازی درگاه‌های پرداخت شاپرکی، درگاه اقساطی دیجی‌پی و سامانه پیامک OTP</td>
-                  <td>اتصالات مالی و ارتباطی</td>
-                  <td>توافقی</td>
+                  <td>
+                    <strong>تخفیف ویژه پلن «حامی کسب‌وکار»:</strong>
+                    <p style="font-size: 0.8rem; color: #DC2626; margin-top: 3px;">تخفیف ویژه اختصاص‌یافته از سوی آژانس دیجیتال پالت جهت رشد اکوسیستم بازی‌های رومیزی</p>
+                  </td>
+                  <td>کسر مستقیم از فاکتور</td>
+                  <td><strong style="color: #DC2626;">۱۵,۰۰۰,۰۰۰-</strong></td>
                 </tr>
                 <tr class="table-total-row">
-                  <td colspan="3"><strong>جمع کل خدمات اجرایی پروژه:</strong></td>
-                  <td><strong id="final-sum-cell">مبلغ نهایی توافقی</strong></td>
+                  <td colspan="3"><strong>جمع کل خالص و نهایی قرارداد (با احتساب تخفیف پلن حامی):</strong></td>
+                  <td><strong id="final-sum-cell" style="font-size: 1.15rem; color: #15803D;">۳۲,۹۲۹,۶۵۱ تومان</strong></td>
                 </tr>
               </tbody>
             </table>
-            <p class="cost-note-sub">* جزئیات دقیق ارقام این جدول پس از اعلام کارفرما به صورت آنلاین در این بخش به‌روزرسانی و ثبت رسمی می‌گردد.</p>
           </div>
         </div>
       </section>
@@ -691,7 +737,7 @@
           <h4 id="inv-order-title" class="inv-title">پیش‌پرداخت بازطراحی وب‌سایت کافه کندو</h4>
           <div class="inv-price-row">
             <span>مبلغ قابل پرداخت:</span>
-            <strong id="inv-amount-display" class="inv-price">مطابق جدول هزینه‌ها</strong>
+            <strong id="inv-amount-display" class="inv-price">۱۶,۴۶۴,۸۲۵ تومان</strong>
           </div>
         </div>
 

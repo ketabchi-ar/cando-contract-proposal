@@ -649,6 +649,89 @@ body {
   line-height: 1.7;
 }
 
+/* Invoice Link Button */
+.invoice-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.invoice-link-btn:hover {
+  background: #DBEAFE;
+  color: #1E40AF;
+  transform: translateY(-1px);
+}
+
+/* Services Dropdown & Badges */
+.services-dropdown {
+  margin-top: 10px;
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.services-dropdown-summary {
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #92400E;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  list-style: none;
+}
+
+.services-dropdown-summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown-chevron {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.services-dropdown[open] .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.services-dropdown-content {
+  padding: 12px 14px;
+  background: #FFF;
+  border-top: 1px solid #FEF3C7;
+}
+
+.sub-service-tag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.srv-badge {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #334155;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Table Total Row */
 .table-total-row {
   background: #FEF3C7;
   font-weight: 800;

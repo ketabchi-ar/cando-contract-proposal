@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گزارش فاکتورهای پرداخت شده پارس‌پک</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+        * {
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+        }
+        body {
+            background: #f1f5f9;
+            color: #0f172a;
+            margin: 0;
+            padding: 30px;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .header {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 24px 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+        }
+        .header h1 {
+            margin: 0 0 6px;
+            font-size: 22px;
+            color: #0284c7;
+        }
+        .header p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        .stat-value {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .table-card {
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 700;
+            padding: 14px 16px;
+            text-align: right;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+        tr:hover td {
+            background: #f8fafc;
+        }
+        .center { text-align: center; }
+        .bold { font-weight: 700; }
+        .num { text-align: left; direction: ltr; font-family: monospace, sans-serif; font-size: 13px; }
+        .text-primary { color: #0284c7; }
+        .title-main { font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+        .domain-tag { font-size: 11px; color: #64748b; direction: ltr; display: inline-block; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; }
+        .sub-date { font-size: 11px; color: #94a3b8; direction: ltr; }
+        .status-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .pdf-btn:hover {
+            background: #0369a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>صورتحساب‌های پرداخت شده پارس‌پک</h1>
+                <p>استخراج مستقیم از ناحیه کاربری (سشن فعال: علی خواجویی)</p>
+            </div>
+            <div style="text-align: left;">
+                <span style="font-size: 12px; color: #64748b;">تاریخ گزارش: 2026-09-23</span>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-label">تعداد کل فاکتورهای پرداخت شده</span>
+                <span class="stat-value">22 عدد</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">مجموع مبالغ پرداختی</span>
+                <span class="stat-value text-primary">2,429,651 تومان</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">بازه زمانی فاکتورها</span>
+                <span class="stat-value" style="font-size: 16px; margin-top: 6px;">1402/12/03 تا 1404/07/12</span>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="center" style="width: 40px;">ردیف</th>
+                        <th style="width: 100px;">شناسه</th>
+                        <th>عنوان و مشخصات سرویس</th>
+                        <th class="center" style="width: 110px;">تاریخ صدور</th>
+                        <th class="center" style="width: 110px;">تاریخ پرداخت</th>
+                        <th style="width: 100px; text-align: left;">خالص (تومان)</th>
+                        <th style="width: 80px; text-align: left;">مالیات</th>
+                        <th style="width: 130px; text-align: left;">مبلغ کل (تومان)</th>
+                        <th class="center" style="width: 90px;">وضعیت</th>
+                        <th class="center" style="width: 120px;">فایل PDF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+    <tr>
+        <td class="center">1</td>
+        <td class="bold">#23591211</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1404/07/12</div>
+            <div class="sub-date">2025-10-04</div>
+        </td>
+        <td class="center">
+            <div>1404/09/06</div>
+            <div class="sub-date">2025-11-27</div>
+        </td>
+        <td class="num">188,250</td>
+        <td class="num">18,825</td>
+        <td class="num bold text-primary">207,075 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_23591211.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">2</td>
+        <td class="bold">#22701558</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1404/05/12</div>
+            <div class="sub-date">2025-08-03</div>
+        </td>
+        <td class="center">
+            <div>1404/06/23</div>
+            <div class="sub-date">2025-09-14</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_22701558.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">3</td>
+        <td class="bold">#22236512</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1404/04/10</div>
+            <div class="sub-date">2025-07-01</div>
+        </td>
+        <td class="center">
+            <div>1404/04/22</div>
+            <div class="sub-date">2025-07-13</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_22236512.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">4</td>
+        <td class="bold">#21666123</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1404/02/30</div>
+            <div class="sub-date">2025-05-20</div>
+        </td>
+        <td class="center">
+            <div>1404/03/09</div>
+            <div class="sub-date">2025-05-30</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_21666123.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">5</td>
+        <td class="bold">#21255561</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1404/01/31</div>
+            <div class="sub-date">2025-04-20</div>
+        </td>
+        <td class="center">
+            <div>1404/02/12</div>
+            <div class="sub-date">2025-05-02</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_21255561.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">6</td>
+        <td class="bold">#20995509</td>
+        <td>
+            <div class="title-main">فعال‌سازی هاست منقضی شده (activate terminated host@TicketId[72534988])</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1404/01/10</div>
+            <div class="sub-date">2025-03-30</div>
+        </td>
+        <td class="center">
+            <div>1404/01/11</div>
+            <div class="sub-date">2025-03-31</div>
+        </td>
+        <td class="num">50,000</td>
+        <td class="num">5,000</td>
+        <td class="num bold text-primary">55,000 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_20995509.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">7</td>
+        <td class="bold">#20624676</td>
+        <td>
+            <div class="title-main">تمدید دامنه - candocafe.ir - 1 ساله (2025-04-29 - 2026-04-28)</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/12/10</div>
+            <div class="sub-date">2025-02-28</div>
+        </td>
+        <td class="center">
+            <div>1404/01/10</div>
+            <div class="sub-date">2025-03-30</div>
+        </td>
+        <td class="num">55,000</td>
+        <td class="num">5,500</td>
+        <td class="num bold text-primary">60,500 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_20624676.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">8</td>
+        <td class="bold">#20509409</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/12/02</div>
+            <div class="sub-date">2025-02-20</div>
+        </td>
+        <td class="center">
+            <div>1404/01/10</div>
+            <div class="sub-date">2025-03-30</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_20509409.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">9</td>
+        <td class="bold">#20102137</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/11/01</div>
+            <div class="sub-date">2025-01-20</div>
+        </td>
+        <td class="center">
+            <div>1403/11/11</div>
+            <div class="sub-date">2025-01-30</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_20102137.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">10</td>
+        <td class="bold">#19715969</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/09/30</div>
+            <div class="sub-date">2024-12-20</div>
+        </td>
+        <td class="center">
+            <div>1403/10/10</div>
+            <div class="sub-date">2024-12-30</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_19715969.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">11</td>
+        <td class="bold">#19325385</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/08/30</div>
+            <div class="sub-date">2024-11-20</div>
+        </td>
+        <td class="center">
+            <div>1403/09/11</div>
+            <div class="sub-date">2024-12-01</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_19325385.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">12</td>
+        <td class="bold">#18927724</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/07/29</div>
+            <div class="sub-date">2024-10-20</div>
+        </td>
+        <td class="center">
+            <div>1403/08/08</div>
+            <div class="sub-date">2024-10-29</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_18927724.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">13</td>
+        <td class="bold">#18491696</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/06/30</div>
+            <div class="sub-date">2024-09-20</div>
+        </td>
+        <td class="center">
+            <div>1403/07/09</div>
+            <div class="sub-date">2024-09-30</div>
+        </td>
+        <td class="num">125,500</td>
+        <td class="num">12,550</td>
+        <td class="num bold text-primary">138,050 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_18491696.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">14</td>
+        <td class="bold">#18185720</td>
+        <td>
+            <div class="title-main">فعال‌سازی مجدد سرویس (reActivation@TicketId[16244410])</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/06/09</div>
+            <div class="sub-date">2024-08-30</div>
+        </td>
+        <td class="center">
+            <div>1403/06/09</div>
+            <div class="sub-date">2024-08-30</div>
+        </td>
+        <td class="num">50,000</td>
+        <td class="num">5,000</td>
+        <td class="num bold text-primary">55,000 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_18185720.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">15</td>
+        <td class="bold">#17912909</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/05/22</div>
+            <div class="sub-date">2024-08-12</div>
+        </td>
+        <td class="center">
+            <div>1403/06/09</div>
+            <div class="sub-date">2024-08-30</div>
+        </td>
+        <td class="num">83,755</td>
+        <td class="num">8,376</td>
+        <td class="num bold text-primary">92,130 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_17912909.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">16</td>
+        <td class="bold">#17465267</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/04/22</div>
+            <div class="sub-date">2024-07-12</div>
+        </td>
+        <td class="center">
+            <div>1403/05/04</div>
+            <div class="sub-date">2024-07-25</div>
+        </td>
+        <td class="num">83,755</td>
+        <td class="num">8,376</td>
+        <td class="num bold text-primary">92,130 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_17465267.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">17</td>
+        <td class="bold">#17033741</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/03/23</div>
+            <div class="sub-date">2024-06-12</div>
+        </td>
+        <td class="center">
+            <div>1403/04/03</div>
+            <div class="sub-date">2024-06-23</div>
+        </td>
+        <td class="num">83,755</td>
+        <td class="num">8,376</td>
+        <td class="num bold text-primary">92,130 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_17033741.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">18</td>
+        <td class="bold">#16615350</td>
+        <td>
+            <div class="title-main">ثبت نام دامنه - candocafe.ir - 1 ساله (2024-05-15 - 2025-05-14)</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/02/26</div>
+            <div class="sub-date">2024-05-15</div>
+        </td>
+        <td class="center">
+            <div>1403/02/26</div>
+            <div class="sub-date">2024-05-15</div>
+        </td>
+        <td class="num">25,000</td>
+        <td class="num">2,500</td>
+        <td class="num bold text-primary">27,500 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_16615350.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">19</td>
+        <td class="bold">#16575692</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/02/23</div>
+            <div class="sub-date">2024-05-12</div>
+        </td>
+        <td class="center">
+            <div>1403/03/08</div>
+            <div class="sub-date">2024-05-28</div>
+        </td>
+        <td class="num">83,755</td>
+        <td class="num">8,376</td>
+        <td class="num bold text-primary">92,130 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_16575692.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">20</td>
+        <td class="bold">#16145434</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1403/01/24</div>
+            <div class="sub-date">2024-04-12</div>
+        </td>
+        <td class="center">
+            <div>1403/02/04</div>
+            <div class="sub-date">2024-04-23</div>
+        </td>
+        <td class="num">83,755</td>
+        <td class="num">8,376</td>
+        <td class="num bold text-primary">92,130 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_16145434.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">21</td>
+        <td class="bold">#15769690</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1402/12/22</div>
+            <div class="sub-date">2024-03-12</div>
+        </td>
+        <td class="center">
+            <div>1403/01/06</div>
+            <div class="sub-date">2024-03-25</div>
+        </td>
+        <td class="num">83,755</td>
+        <td class="num">8,376</td>
+        <td class="num bold text-primary">92,130 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_15769690.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="center">22</td>
+        <td class="bold">#15523287</td>
+        <td>
+            <div class="title-main">تمدید هاست ابری اروپا - candocafe.ir</div>
+            <div class="domain-tag">candocafe.ir</div>
+        </td>
+        <td class="center">
+            <div>1402/12/03</div>
+            <div class="sub-date">2024-02-22</div>
+        </td>
+        <td class="center">
+            <div>1402/12/03</div>
+            <div class="sub-date">2024-02-22</div>
+        </td>
+        <td class="num">83,755</td>
+        <td class="num">7,538</td>
+        <td class="num bold text-primary">91,293 تومان</td>
+        <td class="center">
+            <span class="status-badge">پرداخت شده</span>
+        </td>
+        <td class="center">
+            <a href="parspack_invoices/pdf/invoice_15523287.pdf" target="_blank" class="pdf-btn">📄 مشاهده PDF</a>
+        </td>
+    </tr>
+    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
