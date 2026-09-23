@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قرارداد رسمی طراحی و توسعه وب‌سایت کافه بوردگیم کندو (Cando Cafe) | آژانس دیجیتال پالت</title>
+  <meta name="description" content="پیش‌نویس و قرارداد رسمی بازطراحی و راه‌اندازی وب‌سایت فروشگاه آنلاین کافه بوردگیم کندو منعقد میان آقایان مصطفی رجائی و علی فریدی و آژانس دیجیتال پالت">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Test Mode Bar for Instant Simulation -->
+  <div class="test-mode-bar no-print">
+    <span>🛠️ <strong>نوار ابزار تست و شبیه‌سازی زنده:</strong></span>
+    <button class="test-btn" onclick="simulateSuccessPayment('shaparak')">⚡ تست پرداخت موفق بانکی (شاپرک)</button>
+    <button class="test-btn" onclick="simulateSuccessPayment('digipay')">💳 تست پرداخت اقساطی دیجی‌پی</button>
+    <button class="test-btn" onclick="openTestOtpModal()">📲 تست پاپ‌آپ لاگین OTP</button>
+    <button class="test-btn test-btn-reset" onclick="resetToInitialState()">🔄 بازنشانی به حالت اولیه</button>
+  </div>
+
+  <!-- Top Bar / Navigation -->
+  <header class="top-nav no-print">
+    <div class="nav-container">
+      <div class="brand-side">
+        <img src="assets/images/palette-horizontal-color.png" alt="آژانس دیجیتال پالت" class="palette-logo">
+        <span class="nav-divider"></span>
+        <div class="project-pill">
+          <span class="pill-dot"></span>
+          پروژه وب‌سایت کافه بوردگیم کندو (candocafe.ir)
+        </div>
+      </div>
+      <div class="action-side">
+        <button class="btn-secondary print-btn" onclick="window.print()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+          نسخه چاپی / PDF
+        </button>
+        <a href="#signing-section" class="btn-primary-nav">
+          امضا و تایید
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contract Container -->
+  <div class="contract-wrapper">
+
+    <!-- Signed Contract Verification Banner -->
+    <div id="signed-success-banner" class="signed-success-banner no-print">
+      <div class="ssb-content">
+        <div class="ssb-text">
+          <h3>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            قرارداد رسمی کافه بوردگیم کندو با موفقیت منعقد و تایید گردید!
+          </h3>
+          <p>کارفرمایان گرامی (آقایان مصطفی رجائی و علی فریدی)، هویت الکترونیک با پیامک OTP احراز و پیش‌پرداخت با موفقیت ثبت شد.</p>
+          <div class="ssb-meta-tags">
+            <span class="meta-pill" id="meta-ref-tag">کد پیگیری شاپرک: <strong>۱۴۰۵۸۹۲۳۱۱</strong></span>
+            <span class="meta-pill" id="meta-order-tag">شماره قرارداد: <strong>PLT-CND-1405</strong></span>
+            <span class="meta-pill" id="meta-date-tag">تاریخ و ساعت انعقاد: <strong>امروز</strong></span>
+            <span class="meta-pill" id="meta-gw-tag">شیوه تسویه: <strong>درگاه شاپرکی پالت</strong></span>
+          </div>
+        </div>
+        <div class="ssb-action">
+          <button class="btn-download-pdf-hero" onclick="window.print()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            دانلود نسخه نهایی قرارداد (PDF)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Header -->
+    <div class="official-header">
+      <div class="header-top-row">
+        <div class="agency-meta">
+          <img src="assets/images/palette-horizontal-color.png" alt="آژانس دیجیتال پالت" class="header-logo">
+          <p class="agency-slogan">راهکارهای نرم‌افزاری، توسعه وب مقیاس‌پذیر و اتوماسیون فرآیندها</p>
+        </div>
+        <div class="contract-badge-card">
+          <div class="badge-item">
+            <span class="badge-label">شماره سند:</span>
+            <span class="badge-val">PLT-CND-1405/01</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">تاریخ صدور:</span>
+            <span class="badge-val">شهریور ۱۴۰۵</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">وضعیت:</span>
+            <span class="badge-val status-tag">در انتظار امضا و پیش‌پرداخت</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-title-box">
+        <div class="cando-brand-header">
+          <img src="assets/images/logo-cando.png" alt="لوگو کافه کندو" class="cando-header-logo">
+          <span class="cando-tagline">WE SERVE FUN • CANDO BOARDGAME CAFE</span>
+        </div>
+        <h1 class="main-title">قرارداد رسمی بازطراحی و راه‌اندازی وب‌سایت فروشگاه آنلاین کافه بوردگیم کندو</h1>
+        <p class="sub-title">راه‌اندازی مجدد فروشگاه اینترنتی بازی‌های رومیزی، سیستم اختصاصی به‌روزرسانی قیمت‌ها و یکپارچه‌سازی فرآیندهای خرید</p>
+      </div>
+    </div>
+
+    <!-- Quick Highlights Cards -->
+    <div class="highlight-grid no-print">
+      <div class="hl-card">
+        <div class="hl-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <div class="hl-text">
+          <span class="hl-title">مدت زمان اجرا</span>
+          <span class="hl-val">۱۰ تا ۱۵ روز کاری</span>
+          <span class="hl-desc">از تاریخ پیش‌پرداخت و تحویل داده‌ها</span>
+        </div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="hl-text">
+          <span class="hl-title">شیوه تسویه</span>
+          <span class="hl-val">نقد و اقساط دیجی‌پی</span>
+          <span class="hl-desc">بر اساس جدول ریزهزینه‌ها</span>
+        </div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <div class="hl-text">
+          <span class="hl-title">پشتیبانی و آموزش</span>
+          <span class="hl-val">آموزش کامل + پشتیبانی</span>
+          <span class="hl-desc">آموزش درج محصول و نگهداری</span>
+        </div>
+      </div>
+
+      <div class="hl-card">
+        <div class="hl-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="hl-text">
+          <span class="hl-title">طرفین قرارداد</span>
+          <span class="hl-val">مصطفی رجائی و علی فریدی / پالت</span>
+          <span class="hl-desc">کافه کندو و آژانس دیجیتال پالت</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contract Body -->
+    <main class="contract-content">
+      
+      <!-- Article 1 -->
+      <section class="contract-article" id="art-1">
+        <div class="article-header">
+          <span class="article-num">ماده ۱</span>
+          <h2 class="article-title">مشخصات طرفین قرارداد</h2>
+        </div>
+        <div class="article-body">
+          <p class="lead-text">این قرارداد در کمال صحت عقل، اراده و اختیار کامل بین طرفین ذیل منعقد گردید و طرفین متعهد و ملزم به اجرای کامل تعهدات آن می‌باشند:</p>
+          
+          <div class="parties-grid">
+            <div class="party-card party-client">
+              <div class="party-role">طرف اول (کارفرما / سفارش‌دهنده):</div>
+              <h3 class="party-name">جناب آقای مصطفی رجائی و جناب آقای علی فریدی</h3>
+              <ul class="party-details">
+                <li><strong>شماره همراه آقای مصطفی رجائی:</strong> <span dir="ltr">0917 119 9745</span></li>
+                <li><strong>شماره همراه آقای علی فریدی:</strong> <span dir="ltr">0902 677 8058</span></li>
+                <li><strong>عنوان کسب‌وکار:</strong> کافه بوردگیم کندو (Cando Cafe)</li>
+                <li><strong>دامنه اینترنتی:</strong> <a href="https://candocafe.ir" target="_blank" rel="noopener">candocafe.ir</a></li>
+              </ul>
+            </div>
+
+            <div class="party-card party-agency">
+              <div class="party-role">طرف دوم (مجری / پیمانکار):</div>
+              <h3 class="party-name">جناب آقای اردلان کتابچی به نمایندگی از آژانس دیجیتال پالت</h3>
+              <ul class="party-details">
+                <li><strong>وب‌سایت رسمی:</strong> <a href="https://palette.agency" target="_blank" rel="noopener">palette.agency</a></li>
+                <li><strong>رایانامه سازمانی:</strong> info@palette.agency</li>
+                <li><strong>تلفن همراه و هماهنگی:</strong> <span dir="ltr">0939 332 3239</span></li>
+                <li><strong>حوزه فعالیت:</strong> طراحی سیستم‌های اختصاصی وب، اتوماسیون و بازاریابی داده‌محور</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Article 2 -->
+      <section class="contract-article" id="art-2">
+        <div class="article-header">
+          <span class="article-num">ماده ۲</span>
+          <h2 class="article-title">موضوع قرارداد و دامنه خدمات اجرایی</h2>
+        </div>
+        <div class="article-body">
+          <p>موضوع قرارداد عبارت است از: <strong>نصب، پیکربندی و راه‌اندازی مجدد وب‌سایت فروشگاه آنلاین کافه بوردگیم کندو بر روی دامنه candocafe.ir</strong> با هدف فروش آنلاین بازی‌های رومیزی، بازطراحی کامل صفحات بر اساس هویت بصری موجود، استقرار سیستم اختصاصی به‌روزرسانی قیمت‌ها و تجهیز فروشگاه به درگاه‌های پرداخت نقدی و اقساطی.</p>
+          
+          <div class="sub-block">
+            <h4 class="sub-block-title">فهرست صفحات و بخش‌های بازطراحی‌شده:</h4>
+            <div class="pages-chips-grid">
+              <div class="chip-item">
+                <span class="chip-icon">🎲</span>
+                <div class="chip-content">
+                  <strong>صفحه اصلی (Homepage):</strong>
+                  <span>طراحی بنر هیرو منطبق با شعار We Serve Fun، معرفی کالکشن‌های بازی، بازی‌های محبوب و جدیدترین رویدادها</span>
+                </div>
+              </div>
+              <div class="chip-item">
+                <span class="chip-icon">🛒</span>
+                <div class="chip-content">
+                  <strong>آرشیو محصولات فروشگاه (Shop Archive):</strong>
+                  <span>کاتالوگ پیشرفته بوردگیم‌ها با فیلترهای تعداد بازیکن، رده سنی، زمان بازی و دسته‌بندی مکانیکی</span>
+                </div>
+              </div>
+              <div class="chip-item">
+                <span class="chip-icon">📦</span>
+                <div class="chip-content">
+                  <strong>صفحه اختصاصی تک‌محصول (Single Product):</strong>
+                  <span>گالری تصاویر باکیفیت، جدول مشخصات بازی، امتیاز پیچیدگی، ویدیوی آموزش بازی و دکمه خرید</span>
+                </div>
+              </div>
+              <div class="chip-item">
+                <span class="chip-icon">👤</span>
+                <div class="chip-content">
+                  <strong>داشبورد اختصاصی کاربر (Custom User Dashboard):</strong>
+                  <span>پنل اختصاصی مدیریت سفارش‌ها، آدرس‌های ارسال، پیگیری مرسوله و سابقه خریدهای کاربر</span>
+                </div>
+              </div>
+              <div class="chip-item">
+                <span class="chip-icon">📝</span>
+                <div class="chip-content">
+                  <strong>آرشیو وبلاگ و صفحه مقاله (Blog & Single Post):</strong>
+                  <span>طراحی شکیل بلاگ برای نقد و بررسی بوردگیم‌ها، مقالات استراتژی بازی و اخبار ایونت‌های کافه</span>
+                </div>
+              </div>
+              <div class="chip-item">
+                <span class="chip-icon">☕</span>
+                <div class="chip-content">
+                  <strong>صفحات درباره ما و ارتباط با ما (About & Contact):</strong>
+                  <span>روایت هویت کافه کندو، آدرس حضوری، لوکیشن نقشه، شماره تماس رزرو میز و ساعات کاری</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block" style="margin-top: 24px;">
+            <h4 class="sub-block-title">خدمات تکمیلی، محتوایی و زیرساختی متعهدشده:</h4>
+            <div class="features-list-box">
+              <div class="feat-row">
+                <span class="feat-badge">محتوا و دیتا:</span>
+                <strong>ورود و درج حداقل ۳۰ محصول بوردگیم کامل</strong> (شامل تصاویر استاندارد، توضیحات فارسی، قیمت‌گذاری و دسته‌بندی فنی).
+              </div>
+              <div class="feat-row">
+                <span class="feat-badge">سیستم اختصاصی:</span>
+                <strong>سیستم اختصاصی به‌روزرسانی خودکار و دستی قیمت‌ها</strong> (توسعه‌یافته توسط تیم فنی آژانس دیجیتال پالت).
+              </div>
+              <div class="feat-row">
+                <span class="feat-badge">آموزش:</span>
+                <strong>جلسه و فایل آموزش ویدیویی نحوه درج کالا، مدیریت دسته‌بندی‌ها و کار با پنل محصولات</strong> ویژه پرسنل کافه.
+              </div>
+              <div class="feat-row">
+                <span class="feat-badge">پرفورمنس:</span>
+                <strong>کانفیگ کش اختصاصی LiteSpeed Cache</strong> سازگار با وب‌سرور لایت‌اسپید هاست پارس‌پک کندو جهت حداکثر سرعت.
+              </div>
+              <div class="feat-row">
+                <span class="feat-badge">سئو و ایندکس:</span>
+                <strong>تنظیمات پایه سئو فنی</strong>، راه‌اندازی نقشه سایت استاندارد XML و اتصال به گوگل سرچ‌کنسول.
+              </div>
+              <div class="feat-row">
+                <span class="feat-badge">پشتیبان‌گیری:</span>
+                <strong>راه‌اندازی سیستم بکاپ‌گیری خودکار دوره‌ای</strong> از دیتابیس و فایل‌های وب‌سایت.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Article 3 -->
+      <section class="contract-article" id="art-3">
+        <div class="article-header">
+          <span class="article-num">ماده ۳</span>
+          <h2 class="article-title">درگاه‌های پرداخت، سامانه پیامکی و مجوزها</h2>
+        </div>
+        <div class="article-body">
+          <div class="infra-table-container">
+            <table class="contract-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">عنوان سرویس</th>
+                  <th style="width: 45%;">شرح اقدام فنی و عملیاتی</th>
+                  <th style="width: 30%;">تقسیم وظایف</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>درگاه پرداخت آنلاین شتاب/شاپرک</strong></td>
+                  <td>اتصال مستقیم به درگاه پرداخت شاپرکی جهت تسویه آنی سفارش‌های آنلاین با کلیه کارت‌های بانکی.</td>
+                  <td><span class="badge-role client-role">حساب بانکی با کارفرما</span> + <span class="badge-role agency-role">اتصال فنی با پالت</span></td>
+                </tr>
+                <tr>
+                  <td><strong>درگاه پرداخت اقساطی دیجی‌پی (DigiPay)</strong></td>
+                  <td>پیاده‌سازی درگاه خرید اعتباری BNPL برای امکان خرید اقساطی بازی‌های رومیزی گران‌قیمت توسط کاربران.</td>
+                  <td><span class="badge-role client-role">قرارداد پذیرندگی با کارفرما</span> + <span class="badge-role agency-role">پیاده‌سازی کامل با پالت</span></td>
+                </tr>
+                <tr>
+                  <td><strong>درگاه پیامک خدماتی (SMS.ir)</strong></td>
+                  <td>راه‌اندازی ورود سریع با کد یکبار مصرف (OTP) بدون رمز عبور و پیامک وضعیت ثبت سفارش.</td>
+                  <td><span class="badge-role client-role">شارژ پنل با کارفرما</span> + <span class="badge-role agency-role">ستاپ الگوها با پالت</span></td>
+                </tr>
+                <tr>
+                  <td><strong>الصاق اینماد و نمادهای اعتماد</strong></td>
+                  <td>تعبیه و الصاق صحیح کدهای نماد اعتماد الکترونیکی (اینماد) در فوتر و لایوت وب‌سایت.</td>
+                  <td><span class="badge-role client-role">ارائه مجوز با کارفرما</span> + <span class="badge-role agency-role">الصاق فنی با پالت</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Article 4 -->
+      <section class="contract-article" id="art-4">
+        <div class="article-header">
+          <span class="article-num">ماده ۴</span>
+          <h2 class="article-title">مبلغ قرارداد، شرایط تسویه و جدول ریزهزینه‌ها</h2>
+        </div>
+        <div class="article-body">
+          <div class="price-summary-banner">
+            <div class="price-col">
+              <span class="price-label">مبلغ کل قرارداد و برآورد هزینه‌ها:</span>
+              <span class="price-digits" id="contract-total-display">مطابق با جدول ریزهزینه‌ها</span>
+              <span class="price-words">امکان پرداخت نقدی مرحله‌ای و تسویه اقساطی با دیجی‌پی</span>
+            </div>
+            <div class="price-methods-tag">
+              پرداخت در دو مرحله <strong>۵۰٪ پیش‌پرداخت</strong> و <strong>۵۰٪ تسویه نهایی</strong> پس از تحویل و آموزش
+            </div>
+          </div>
+
+          <!-- Cost Breakdown Table Placeholder -->
+          <div class="cost-breakdown-wrapper">
+            <h4 class="sub-block-title">جدول ریزهزینه‌ها و آیتم‌های مالی پروژه:</h4>
+            <table class="contract-table cost-table">
+              <thead>
+                <tr>
+                  <th>ردیف</th>
+                  <th>شرح خدمات / آیتم اجرایی</th>
+                  <th>وضعیت / ماژول</th>
+                  <th>مبلغ (تومان)</th>
+                </tr>
+              </thead>
+              <tbody id="cost-table-body">
+                <tr>
+                  <td>۱</td>
+                  <td>نصب، پیکربندی هاست لایت‌اسپید و بازطراحی صفحات سایت (صفحه اصلی، فروشگاه، وبلاگ، درباره ما، تماس و پنل کاربری)</td>
+                  <td>طراحی اختصاصی UI/UX</td>
+                  <td>توافقی</td>
+                </tr>
+                <tr>
+                  <td>۲</td>
+                  <td>درج و استانداردسازی حداقل ۳۰ محصول بازی رومیزی به همراه مدیا و فیلترهای تخصصی</td>
+                  <td>پک کاتالوگ بوردگیم</td>
+                  <td>توافقی</td>
+                </tr>
+                <tr>
+                  <td>۳</td>
+                  <td>نصب و راه‌اندازی سیستم اختصاصی به‌روزرسانی خودکار و دستی قیمت‌ها</td>
+                  <td>پلاگین اختصاصی پالت</td>
+                  <td>توافقی</td>
+                </tr>
+                <tr>
+                  <td>۴</td>
+                  <td>یکپارچه‌سازی درگاه‌های پرداخت شاپرکی، درگاه اقساطی دیجی‌پی و سامانه پیامک OTP</td>
+                  <td>اتصالات مالی و ارتباطی</td>
+                  <td>توافقی</td>
+                </tr>
+                <tr class="table-total-row">
+                  <td colspan="3"><strong>جمع کل خدمات اجرایی پروژه:</strong></td>
+                  <td><strong id="final-sum-cell">مبلغ نهایی توافقی</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="cost-note-sub">* جزئیات دقیق ارقام این جدول پس از اعلام کارفرما به صورت آنلاین در این بخش به‌روزرسانی و ثبت رسمی می‌گردد.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Article 5 -->
+      <section class="contract-article" id="art-5">
+        <div class="article-header">
+          <span class="article-num">ماده ۵</span>
+          <h2 class="article-title">مدت زمان اجرا و مراحل تحویل پروژه</h2>
+        </div>
+        <div class="article-body">
+          <p>مدت زمان کامل اجرای پروژه از تاریخ پرداخت پیش‌پرداخت و تحویل دسترسی‌های هاست و محتوای اولیه، بین <strong>۱۰ تا ۱۵ روز کاری</strong> تعیین می‌گردد. مراحل تحویل به شرح زیر است:</p>
+          <ul class="article-list-styled">
+            <li><strong>مرحله ۱ (روز ۱ تا ۵):</strong> ستاپ زیرساخت لایت‌اسپید، پیاده‌سازی لایوت و بازطراحی صفحات اصلی و فروشگاه با هویت بصری کافه کندو.</li>
+            <li><strong>مرحله ۲ (روز ۶ تا ۱۰):</strong> بارگذاری ۳۰ محصول اولیه، فعال‌سازی پلاگین اختصاصی آپدیت قیمت‌ها و کانفیگ فیلترهای بازی رومیزی.</li>
+            <li><strong>مرحله ۳ (روز ۱۱ تا ۱۵):</strong> اتصال درگاه شاپرک، دیجی‌پی، اینماد، سامانه پیامک، تست نهایی و ارائه ویدیوی آموزشی به کارفرما.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Article 6 & 7 -->
+      <section class="contract-article" id="art-6-7">
+        <div class="article-header">
+          <span class="article-num">ماده ۶ و ۷</span>
+          <h2 class="article-title">تعهدات پیمانکار و کارفرما</h2>
+        </div>
+        <div class="article-body">
+          <div class="two-col-commitments">
+            <div class="commit-col">
+              <h4 class="commit-title">تعهدات آژانس دیجیتال پالت:</h4>
+              <ul class="bullet-list">
+                <li>حفظ دقیق هویت بصری، تم رنگی زرد و کانسپت گیمینگ کافه کندو.</li>
+                <li>پیاده‌سازی دقیق افزونه اختصاصی به‌روزرسانی قیمت‌ها و گارانتی عملکرد آن.</li>
+                <li>ارائه آموزش کامل نحوه افزودن کالاهای بعدی و کار با داشبورد به نماینده کافه.</li>
+                <li>رعایت استانداردهای سرعت، بهینه‌سازی کش سرور LiteSpeed و سئوی تکنیکال پایه.</li>
+              </ul>
+            </div>
+            <div class="commit-col">
+              <h4 class="commit-title">تعهدات کارفرما (کافه بوردگیم کندو):</h4>
+              <ul class="bullet-list">
+                <li>ارائه دسترسی هاست، دامنه و پنل‌های پیامک و درگاه حداکثر طی ۳ روز کاری.</li>
+                <li>ارائه لیست ۳۰ محصول اولیه (نام، تصاویر و قیمت روز) جهت بارگذاری در موعد مقرر.</li>
+                <li>تسویه به موقع مبالغ مطابق با شرایط توافق‌شده ماده ۴.</li>
+                <li>مسئولیت اصالت کالاها و مجوزهای قانونی فروش بازی‌ها بر عهده کارفرما می‌باشد.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appendix 1: Design & Visual Identity -->
+      <section class="contract-article appendix-section" id="appendix-1">
+        <div class="article-header">
+          <span class="article-num">پیوست شماره ۱</span>
+          <h2 class="article-title">هویت بصری، پالت رنگی و طرح‌های UI کافه بوردگیم کندو</h2>
+        </div>
+        <div class="article-body">
+          <p>طراحی وب‌سایت با حفظ کامل هویت شاداب و پرانرژی کافه کندو (تاس ایزومتریک زرد با کانسپت پنیر و شعار We Serve Fun) اجرا می‌گردد:</p>
+
+          <div class="design-gallery-grid">
+            <div class="gallery-card" onclick="openLightbox('assets/images/logo-cando.png', 'لوگوی رسمی کافه بوردگیم کندو (We Serve Fun)')">
+              <div class="img-wrap" style="background: #FFC800; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/images/logo-cando.png" alt="لوگو کافه کندو" style="max-height: 140px; width: auto; object-fit: contain;">
+              </div>
+              <div class="card-caption">
+                <strong>۱. نشان تجاری و هویت بصری اصلی:</strong>
+                <span>تاس ایزومتریک سه‌بعدی با بافت حفره‌های پنیر، تم رنگی زرد شاداب (#FFC800) و شعار دست‌نویس We Serve Fun</span>
+              </div>
+            </div>
+
+            <div class="gallery-card placeholder-card">
+              <div class="img-wrap placeholder-wrap">
+                <div class="ph-content">
+                  <span class="ph-icon">🎨</span>
+                  <span>محل قرارگیری پالت رنگی و تایپوگرافی اختصاصی</span>
+                  <small>(پس از تایید پالت رنگی نهایی بارگذاری می‌گردد)</small>
+                </div>
+              </div>
+              <div class="card-caption">
+                <strong>۲. کدهای رنگی و تایپوگرافی رابط کاربری:</strong>
+                <span>پالت رنگ‌های اصلی، مکمل، کنتراست تیره و قلم استاندارد فارسی وب</span>
+              </div>
+            </div>
+
+            <div class="gallery-card placeholder-card">
+              <div class="img-wrap placeholder-wrap">
+                <div class="ph-content">
+                  <span class="ph-icon">🖥️</span>
+                  <span>محل قرارگیری طرح‌های گرافیکی صفحات</span>
+                  <small>(وایرفریم و طرح نهایی فیگما در این بخش درج می‌شود)</small>
+                </div>
+              </div>
+              <div class="card-caption">
+                <strong>۳. طراحی صفحات فروشگاه و محصول:</strong>
+                <span>چیدمان کارت‌های بازی، برچسب رده سنی و تعداد نفرات و سبد خرید</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appendix 2: Palette Agency Full Service Spectrum -->
+      <section class="contract-article appendix-section palette-catalog-section" id="appendix-2">
+        <div class="article-header">
+          <span class="article-num">پیوست شماره ۲</span>
+          <h2 class="article-title">سبد جامع خدمات آژانس دیجیتال پالت (Palette Agency Ecosystem)</h2>
+        </div>
+        <div class="article-body">
+          <p class="catalog-intro">آژانس دیجیتال پالت شریک توسعه تکنولوژی و رشد فروش آنلاین کسب‌وکارها است:</p>
+
+          <div class="services-spectrum-grid">
+            <div class="service-card">
+              <div class="s-icon">⚙️</div>
+              <h4>توسعه افزونه‌ها و پلاگین‌های اختصاصی</h4>
+              <p>برنامه‌نویسی ماژول‌های ویژه متناسب با جریان کاری کسب‌وکار مانند سیستم اتوماتیک همگام‌سازی قیمت‌ها و موجودی انبار.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="s-icon">🎲</div>
+              <h4>سیستم‌های آنلاین رزرواسیون میز و رویداد</h4>
+              <p>طراحی زیرساخت آنلاین رزرو صندلی و سانس بازی برای کافه‌گیم‌ها با پرداخت بیعانه آنلاین و یادآوری پیامکی.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="s-icon">📈</div>
+              <h4>کمپین‌های پرفورمنس مارکتینگ و جذب گیمر</h4>
+              <p>مدیریت تبلیغات نتیجه‌محور در اینستاگرام و کانال‌های گیمینگ، تولید محتوای معرفی بازی و افزایش نرخ فروش آنلاین.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="s-icon">👥</div>
+              <h4>باشگاه مشتریان و سیستم وفاداری (Gamification)</h4>
+              <p>طراحی سیستم امتیازدهی به ازای هر خرید بازی یا مراجعه حضوری، کدهای تخفیف اختصاصی و گیمیفیکیشن فروشگاهی.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Signing & Payment Section -->
+      <section class="signing-container" id="signing-section">
+        <div class="signing-card" id="signing-card-default">
+          <div class="signing-header">
+            <div class="sign-icon">✍️</div>
+            <h3>تأیید رسمی قرارداد کافه کندو و ورود به تسویه</h3>
+            <p>کارفرمایان گرامی (جناب آقای رجائی / جناب آقای فریدی)، جهت تایید نهایی قرارداد، شیوه پرداخت را انتخاب فرمایید:</p>
+          </div>
+
+          <div class="action-buttons-group">
+            <button type="button" class="btn-sign btn-cash" onclick="initiateSigning('cash')">
+              <div class="btn-content">
+                <span class="btn-headline">تأیید قرارداد و پرداخت نقدی پیش‌پرداخت</span>
+                <span class="btn-subline">واریز مرحله اول از طریق کلیه کارت‌های عضو شتاب</span>
+              </div>
+              <div class="btn-arrow">←</div>
+            </button>
+
+            <button type="button" class="btn-sign btn-digipay" onclick="initiateSigning('digipay')">
+              <div class="btn-content">
+                <span class="btn-headline">تأیید قرارداد و تسویه اقساطی با دیجی‌پی</span>
+                <span class="btn-subline">پرداخت اقساطی ماهانه بدون نیاز به ضامن</span>
+              </div>
+              <div class="btn-arrow">←</div>
+            </button>
+          </div>
+
+          <div class="signing-footer-badges">
+            <span class="badge-f">🔒 احراز هویت با شماره کارفرمایان (۰۹۱۷۱۱۹۹۷۴۵ / ۰۹۰۲۶۷۷۸۰۵۸)</span>
+            <span class="badge-f">⚡ سامانه ارسال سریع SMS.ir</span>
+            <span class="badge-f">🌐 ثبت رسمی در پرتال آژانس پالت</span>
+          </div>
+        </div>
+
+        <!-- Signing Completed Card -->
+        <div class="signing-card" id="signing-card-completed" style="display: none; background: #F0FDF4; border-color: #16A34A;">
+          <div class="signing-header" style="margin-bottom: 20px;">
+            <div class="sign-icon" style="color: #16A34A;">✅</div>
+            <h3 style="color: #166534;">قرارداد کافه بوردگیم کندو رسماً منعقد و امضا گردید</h3>
+            <p style="color: #15803D;">احراز هویت الکترونیک با موفقیت انجام شد و نسخه حقوقی آماده پیگیری اجرایی می‌باشد.</p>
+          </div>
+          <button type="button" class="btn-sign" style="background: #15803D; color: #FFF; margin: 0 auto; max-width: 400px; justify-content: center;" onclick="window.print()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>دانلود نسخه نهایی و چاپی قرارداد (PDF)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Signatures Footer block -->
+      <div class="signatures-block">
+        <div class="sig-col">
+          <p class="sig-title">امضا و اثرانگشت کارفرمایان (کافه کندو):</p>
+          <div class="sig-box">
+            <div class="sig-name">جناب آقای مصطفی رجائی / جناب آقای علی فریدی</div>
+            <div class="sig-status signed-status-placeholder" id="client-signature-display">
+              در انتظار تأیید پیامکی و تسویه
+            </div>
+          </div>
+        </div>
+
+        <div class="sig-col">
+          <p class="sig-title">مهر و امضای مجری:</p>
+          <div class="sig-box">
+            <div class="sig-name">اردلان کتابچی به نمایندگی از آژانس دیجیتال پالت</div>
+            <div class="agency-stamp">
+              <img src="assets/images/palette-vertical-color.png" alt="مهر رسمی آژانس دیجیتال پالت" class="stamp-img">
+              <div class="stamp-text">امضا شده با مهر و هویت دیجیتال معتبر</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verification QR -->
+        <div class="sig-col qr-col">
+          <p class="sig-title">شناسه اصالت و استعلام آنلاین:</p>
+          <div class="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fpalette.agency%2Fcontract%2Fciendo%2F" alt="QR Code استعلام سند" class="doc-qr-img">
+            <div class="qr-meta">
+              <span class="qr-hash">کد صحت‌سنجی: PLT-CND-8821</span>
+              <small>با اسکن این بارکد، اصالت سند در پرتال پالت قابل استعلام است.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="contract-footer">
+      <div class="f-inner">
+        <p>© ۱۴۰۵ کلیه حقوق برای <strong>آژانس دیجیتال پالت</strong> و <strong>کافه بوردگیم کندو</strong> محفوظ است. | وب‌سایت: <a href="https://palette.agency" target="_blank">palette.agency</a></p>
+        <p class="f-sub">این سند با استناد به قانون تجارت الکترونیکی مصوب مجلس شورای اسلامی تنظیم گردیده است.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-img" src="" alt="طراحی وب‌سایت">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Modal for OTP Signing -->
+  <div id="otp-modal" class="otp-modal">
+    <div class="otp-modal-content">
+      <button class="otp-close" onclick="closeOtpModal()">&times;</button>
+      
+      <div class="otp-header">
+        <img src="assets/images/palette-horizontal-color.png" alt="آژانس دیجیتال پالت" class="otp-logo">
+        <h3 id="otp-modal-title">احراز هویت و امضای قرارداد کندو</h3>
+        <p id="otp-modal-subtitle">جهت ثبت حقوقی امضای قرارداد، شماره همراه کارفرما را تایید فرمایید.</p>
+      </div>
+
+      <!-- Step 1: Phone input with Dual Client Selector -->
+      <div id="otp-step-phone" class="otp-step active">
+        <div class="client-quick-select">
+          <label class="cqs-label">انتخاب طرف امضاکننده:</label>
+          <div class="cqs-buttons">
+            <button type="button" class="btn-cqs active" onclick="selectClientPhone('09171199745', 'مصطفی رجائی')">مصطفی رجائی</button>
+            <button type="button" class="btn-cqs" onclick="selectClientPhone('09026778058', 'علی فریدی')">علی فریدی</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="client-phone">شماره همراه امضاکننده (جهت دریافت پیامک تایید):</label>
+          <div class="phone-input-wrap">
+            <input type="tel" id="client-phone" value="09171199745" dir="ltr" placeholder="09xxxxxxxxx">
+            <span class="input-tag" id="client-name-tag">مصطفی رجائی</span>
+          </div>
+          <small class="hint">پیامک حاوی کد تایید ۶ رقمی به این شماره ارسال خواهد شد.</small>
+        </div>
+
+        <button class="btn-modal-action" id="btn-send-otp" onclick="sendOtpCode()">
+          <span>ارسال کد تأیید ورود و امضا</span>
+          <div class="spinner" id="send-spinner"></div>
+        </button>
+      </div>
+
+      <!-- Step 2: Verification Code -->
+      <div id="otp-step-verify" class="otp-step">
+        <div class="input-group">
+          <label for="otp-code">کد ۶ رقمی پیامک‌شده را وارد نمایید:</label>
+          <input type="text" id="otp-code" placeholder="—— —— ——" maxlength="6" dir="ltr" class="code-input">
+          <div class="timer-wrap">
+            <span id="otp-timer">امکان ارسال مجدد تا ۰۱:۵۹</span>
+          </div>
+        </div>
+
+        <button class="btn-modal-action" id="btn-verify-otp" onclick="verifyOtpAndProceed()">
+          <span>تأیید کد و ورود به تسویه</span>
+          <div class="spinner" id="verify-spinner"></div>
+        </button>
+
+        <button class="btn-text-link" onclick="backToPhoneStep()">ویرایش شماره یا ارسال مجدد</button>
+      </div>
+
+      <!-- Step 3: In-Modal Checkout -->
+      <div id="otp-step-checkout" class="otp-step">
+        <div class="invoice-summary-card">
+          <div class="inv-header">
+            <span class="inv-badge" id="inv-mode-badge">پیش‌فاکتور رسمی پالت</span>
+            <span class="inv-client" id="inv-client-name">مصطفی رجائی / علی فریدی</span>
+          </div>
+          <h4 id="inv-order-title" class="inv-title">پیش‌پرداخت بازطراحی وب‌سایت کافه کندو</h4>
+          <div class="inv-price-row">
+            <span>مبلغ قابل پرداخت:</span>
+            <strong id="inv-amount-display" class="inv-price">مطابق جدول هزینه‌ها</strong>
+          </div>
+        </div>
+
+        <div class="gateway-selection-wrap">
+          <label class="gw-label">انتخاب درگاه تسویه:</label>
+          <div class="gw-options-list" id="gw-options-container">
+            <label class="gw-card active">
+              <input type="radio" name="payment_gateway" value="online_shaparak" checked>
+              <div class="gw-card-content">
+                <strong>درگاه آنلاین شاپرک (کلیه کارت‌های بانکی)</strong>
+                <span>اتصال آنی به درگاه بانکی شتاب</span>
+              </div>
+            </label>
+            <label class="gw-card" id="gw-digipay-row">
+              <input type="radio" name="payment_gateway" value="digipay">
+              <div class="gw-card-content">
+                <strong>درگاه پرداخت اقساطی دیجی‌پی (DigiPay BNPL)</strong>
+                <span>تسویه اقساطی بدون پیش‌پرداخت</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-modal-action btn-pay-action" id="btn-final-pay" onclick="processModalPayment()">
+          <span>اتصال امن به درگاه و نهایی‌سازی</span>
+          <div class="spinner" id="pay-spinner"></div>
+        </button>
+      </div>
+
+      <div id="otp-status-msg" class="otp-status-msg"></div>
+
+      <div class="otp-note">
+        <span>🔒 سامانه پیامکی امن SMS.ir • آژانس دیجیتال پالت</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
