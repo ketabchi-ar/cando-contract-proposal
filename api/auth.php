@@ -43,7 +43,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : ($data['action'] ?? '');
 // 1. Send OTP + Warm-up
 if ($action === 'send_otp') {
     $phone = clean_phone($data['phone'] ?? '');
-    $client_name = trim($data['client_name'] ?? 'مصطفی رجائی');
+    $client_name = trim($data['client_name'] ?? 'آرش فریدی');
 
     if (empty($phone) || strlen($phone) < 10) {
         echo json_encode(['success' => false, 'message' => 'شماره همراه وارد شده نامعتبر است.']);
@@ -113,7 +113,7 @@ if ($action === 'verify_otp') {
     $phone = clean_phone($data['phone'] ?? '');
     $code = trim($data['code'] ?? '');
     $payment_mode = $data['payment_mode'] ?? 'cash';
-    $client_name = trim($data['client_name'] ?? 'مصطفی رجائی');
+    $client_name = trim($data['client_name'] ?? 'آرش فریدی');
 
     $session_data = $_SESSION['cando_contract_otp_' . $phone] ?? null;
 
@@ -182,7 +182,7 @@ if ($action === 'create_order_and_pay') {
     $phone = clean_phone($data['phone'] ?? '');
     $payment_mode = $data['payment_mode'] ?? 'cash';
     $gateway_id = $data['gateway_id'] ?? '';
-    $client_name = trim($data['client_name'] ?? 'مصطفی رجائی');
+    $client_name = trim($data['client_name'] ?? 'آرش فریدی');
 
     $amount = ($payment_mode === 'cash') ? 16464825 : 32929651;
     $item_name = ($payment_mode === 'cash')

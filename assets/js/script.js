@@ -6,11 +6,10 @@
 // Global Configuration
 const CONFIG = {
   clients: [
-    { name: "مصطفی رجائی", phone: "09171199745" },
-    { name: "علی فریدی", phone: "09026778058" }
+    { name: "آرش فریدی", phone: "09172256940" }
   ],
-  selectedClientName: "مصطفی رجائی",
-  selectedPhone: "09171199745",
+  selectedClientName: "آرش فریدی",
+  selectedPhone: "09172256940",
   templateId: 519830,
   successTemplateId: 705349,
   apiKey: "LZEXvE6obhG6g6SH6JeiZPgAHb8fjVFUZiAYCIjKscJ2FZGb",
