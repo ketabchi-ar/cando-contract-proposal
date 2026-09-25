@@ -126,6 +126,44 @@
         .pdf-btn:hover {
             background: #0369a1;
         }
+        @media (max-width: 768px) {
+            body {
+                padding: 14px 10px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 16px 14px;
+            }
+            .header h1 {
+                font-size: 18px;
+            }
+            .header p {
+                font-size: 12px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 14px;
+            }
+            .stat-value {
+                font-size: 18px;
+            }
+            .table-card {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            table {
+                min-width: 660px;
+            }
+            th, td {
+                padding: 10px 10px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
