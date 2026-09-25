@@ -1805,13 +1805,13 @@ body {
     padding: 6px 12px !important;
   }
 
-  /* Force Details Dropdown open for print */
+  /* Force Details Dropdown content open cleanly for print */
   details.services-dropdown {
     margin-top: 6px !important;
     border: 1px solid #CBD5E1 !important;
   }
 
-  details.services-dropdown[open] .services-dropdown-content {
+  details.services-dropdown .services-dropdown-content {
     display: block !important;
     padding: 8px 10px !important;
   }
