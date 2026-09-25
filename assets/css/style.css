@@ -2133,21 +2133,69 @@ body {
     padding: 10px 14px;
   }
 
+  /* Anchor Scroll Margin */
+  .contract-article,
+  .signing-card,
+  section[id] {
+    scroll-margin-top: 70px;
+  }
+
   /* Tables & Scrollable Wrappers */
+  .mobile-table-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: #92400E;
+    background: #FEF3C7;
+    border: 1px solid #FDE68A;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
   .infra-table-container,
   .cost-breakdown-wrapper,
   .games-table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    margin: 14px 0;
+    margin: 12px 0 16px;
     border-radius: var(--radius-sm);
-    box-shadow: inset -4px 0 8px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: inset -6px 0 10px -6px rgba(0, 0, 0, 0.15), inset 6px 0 10px -6px rgba(0, 0, 0, 0.15);
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 #F1F5F9;
+  }
+
+  .infra-table-container::-webkit-scrollbar,
+  .cost-breakdown-wrapper::-webkit-scrollbar,
+  .games-table-wrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .infra-table-container::-webkit-scrollbar-thumb,
+  .cost-breakdown-wrapper::-webkit-scrollbar-thumb,
+  .games-table-wrapper::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+  }
+
+  .invoice-link-btn {
+    font-size: 0.72rem;
+    padding: 4px 8px;
+    gap: 4px;
+    line-height: 1.4;
   }
 
   .contract-table {
-    min-width: 520px;
-    font-size: 0.84rem;
+    min-width: 480px;
+    font-size: 0.82rem;
   }
+
+  .cost-table th:nth-child(1), .cost-table td:nth-child(1) { width: 8% !important; min-width: 28px; text-align: center; }
+  .cost-table th:nth-child(2), .cost-table td:nth-child(2) { width: 44% !important; min-width: 160px; }
+  .cost-table th:nth-child(3), .cost-table td:nth-child(3) { width: 24% !important; min-width: 100px; }
+  .cost-table th:nth-child(4), .cost-table td:nth-child(4) { width: 24% !important; min-width: 100px; white-space: nowrap; }
 
   .contract-table th,
   .contract-table td {
