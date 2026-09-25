@@ -1828,6 +1828,12 @@ body {
     background: #FFF !important;
   }
 
+  .games-table-wrapper {
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+  }
+
   /* Gallery compact grid for print */
   .design-gallery-grid {
     grid-template-columns: repeat(3, 1fr) !important;
